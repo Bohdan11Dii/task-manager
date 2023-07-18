@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1 class="title">
+        Workers
+      </h1>
+
+      {% block search_form %}
+        {% include "includes/search_form.html" %}
+      {% endblock %}
+
+      {% if worker_list %}
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Username</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for worker in worker_list %}
+              <tr>
+                  <td>{{ worker.username }}</td>
+                  <td>{{ worker.first_name }}</td>
+                  <td>{{ worker.last_name }}</td>
+                  <td>{{ worker.position.name }}</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+        
+          
+        {% else %}
+        <p>The are no worker in Workers</p>
+        {% endif %}
+        <a class="button" style="float: right;" href="{% url 'task:worker-create' %}">Create</a>
+
+{% endblock %}

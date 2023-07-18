@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1 class="title">
+        Positions
+      </h1>
+
+      {% block search_form %}
+        {% include "includes/search_form.html" %}
+      {% endblock %}
+
+      {% if position_list %}
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for position in position_list %}
+              <tr>
+                  <td>{{ position.name }}</td>
+                  <td><a class="text-info" href="{% url 'task:position-update' pk=position.id %}">Update</a></td>
+                  <td><a style="color: rgb(252, 61, 3);" href="{% url 'task:position-delete' pk=position.id %}">Delete</a></td>
+              </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+        
+          
+        {% else %}
+        <p>The are no position in Positions</p>
+        {% endif %}
+
+        <a class="button" style="float: right;" href="{% url 'task:position-create' %}">Create</a>
+
+{% endblock %}

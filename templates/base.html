@@ -1,0 +1,62 @@
+{% load i18n static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+      IT Company Task Manager
+    </title>
+
+    <!-- Favicon -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="{% static 'css/table.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/create_button.css' %}" rel="stylesheet" />
+    
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{% static 'css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+    <link id="pagestyle_dark" href="{% static 'css/dark-theme-core.css' %}" rel="stylesheet" />
+
+
+</head>
+
+
+<body class="g-sidenav-show bg-gray-100">
+<div class="body_contant">
+  {% block sidebar %}
+  {% include "includes/sidebar.html" %}
+{% endblock %}
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        {% include "includes/navigation.html" %} 
+        {% block content %}{% endblock content %}
+        {% block pagination %}
+          {% include "includes/pagination.html" %}
+        {% endblock %}
+        
+    </main>
+
+    {% block footer %}
+          {% include "includes/footer.html" %}
+    {% endblock %}
+
+</div>
+  
+    <!-- APP Configurator -->
+
+<!--   Core JS Files   -->
+{% block script %}
+  <script src="{% static 'js/dark-mode-handler.js' %}"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="{% static 'js/scripts.js' %}"></script>
+  <script src="{% static 'js/burger-menu.js' %}"></script>
+{% endblock %}
+
+</body>
+</html>

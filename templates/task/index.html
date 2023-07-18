@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+  .img_container{
+    text-align: center;
+  }
+  .responsive {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+    margin: 50px auto;
+  }
+</style>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Tasks</p>
+                    <h5 class="font-weight-bolder mb-0" id="jsonData" data-json="{{ data }}">
+                      {{ num_task }}
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Positions</p>
+                    <h5 class="font-weight-bolder mb-0" id="jsonData" data-json="{{ data }}">
+                     {{ num_position }}
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class="fa fa-street-view" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Workers</p>
+                    <h5 class="font-weight-bolder mb-0" id="jsonData" data-json="{{ data }}">
+                      {{ num_worker }}
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Task Types</p>
+                    <h5 class="font-weight-bolder mb-0" id="jsonData" data-json="{{ data }}">
+                      {{ num_task_type }}
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="img_container">
+        <img class="responsive"  src="https://www.lbtc.co.uk/wp-content/uploads/2019/11/Benefits-of-Professional-IT-Management-Courses.jpg"> 
+      </div>
+
+    </div>
+
+{% endblock content %}
