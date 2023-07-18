@@ -1,0 +1,17 @@
+.title{
+    text-align: center;
+}
+
+.table_list{
+    margin: 0 5%;
+}
+
+
+@media screen and (max-width: 550px) {
+.table_list {
+    margin: 0 auto;
+}
+}
+
+
+
