@@ -8,13 +8,15 @@ class ModelTests(TestCase):
     def test_position_str(self):
         position = Position.objects.create(name="test")
         self.assertEqual(str(position), position.name)
-    
+
     def test_worker_str(self):
+        position = Position.objects.create(name="test")
         worker = get_user_model().objects.create_user(
             username="test",
-            password="test12345"
+            password="test12345",
+            position=position
         )
-        self.assertEqual(str(worker), worker.username)
+        self.assertEqual(str(worker), f"{worker.username}({worker.position})")
 
     def test_task_str(self):
         task_type = TaskType.objects.create(name="test")
@@ -27,14 +29,17 @@ class ModelTests(TestCase):
             priority="Urgent"
         )
 
-        self.assertEqual(str(task), (f"{task.name}"
-                                    f"(task_type: {task_type.name},"
-                                    f"completed: {task.is_completed})")
-                                    )
+        self.assertEqual(
+            str(task), (
+                        f"{task.name}"
+                        f"(task_type: {task_type.name},"
+                        f"completed: {task.is_completed})"
+            )
+        )
 
     def test_create_worker_witt_position(self):
-        username="test"
-        password="test12345"
+        username = "test"
+        password = "test12345"
         position = Position.objects.create(name="test")
         worker = get_user_model().objects.create_user(
             username=username,
