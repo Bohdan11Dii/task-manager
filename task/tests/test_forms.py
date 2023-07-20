@@ -5,7 +5,6 @@ from task.forms import (
     TaskTypeSearchForm,
     TaskSearchForm,
     PositionSearchForm,
-    WorkerSearchForm
 )
 from task.models import Position
 
@@ -24,7 +23,6 @@ class FormsTests(TestCase):
 
         form = WorkerCreationForm(data=form_data)
         self.assertTrue(form.is_valid())
-
 
     def test_task_type_search_form(self):
         form_data = {

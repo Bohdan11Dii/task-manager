@@ -1,16 +1,21 @@
-import json
 from typing import Any, Dict
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from task.forms import TaskForm, TaskSearchForm, TaskTypeSearchForm, WorkerCreationForm, PositionSearchForm, WorkerSearchForm
+from task.forms import (
+    TaskForm,
+    TaskSearchForm,
+    TaskTypeSearchForm,
+    WorkerCreationForm,
+    PositionSearchForm,
+    WorkerSearchForm
 
+)
 from task.models import TaskType, Position, Worker, Task
 
-# Create your views here.
 
 # @login_required
 def index(request):
@@ -18,15 +23,13 @@ def index(request):
     num_position = Position.objects.count()
     num_worker = Worker.objects.count()
     num_task = Task.objects.count()
-   
+
     context = {
         "num_position": num_position,
         "num_worker": num_worker,
         "num_task": num_task,
         "num_task_type": num_task_type,
     }
-    
-
 
     return render(request, "task/index.html", context=context)
 
@@ -58,14 +61,14 @@ class TaskTypeListView(LoginRequiredMixin, generic.ListView):
 
 class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = TaskType
-    fields ="__all__"
+    fields = "__all__"
     success_url = reverse_lazy("task:task-type-list")
     template_name = "task/task_type_form.html"
 
 
 class TaskTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = TaskType
-    fields ="__all__"
+    fields = "__all__"
     success_url = reverse_lazy("task:task-type-list")
     template_name = "task/task_type_form.html"
 
@@ -99,6 +102,7 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
 
+
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
     form_class = TaskForm
@@ -117,7 +121,7 @@ class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Task
-   
+
 
 class PositionListView(LoginRequiredMixin, generic.ListView):
     model = Position
@@ -144,13 +148,13 @@ class PositionListView(LoginRequiredMixin, generic.ListView):
 
 class PositionCreateView(LoginRequiredMixin, generic.CreateView):
     model = Position
-    fields ="__all__"
+    fields = "__all__"
     success_url = reverse_lazy("task:position-list")
 
 
 class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Position
-    fields ="__all__"
+    fields = "__all__"
     success_url = reverse_lazy("task:position-list")
 
 
@@ -158,6 +162,7 @@ class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Position
     success_url = reverse_lazy("task:position-list")
     template_name = "task/position_confirm_delete.html"
+
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = Worker
@@ -178,7 +183,9 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
         form = WorkerSearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(username__icontains=form.cleaned_data["username"])
+            return queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
         return queryset
 
 

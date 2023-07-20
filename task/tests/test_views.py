@@ -1,7 +1,7 @@
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from task.models import Position, TaskType, Worker, Task
+from task.models import Position
 
 
 POSITION_URL = reverse("task:position-list")
@@ -29,7 +29,6 @@ class PrivatePositionTests(TestCase):
         )
         Position.objects.create(
             name="test1",
-           
         )
 
         response = self.client.get(POSITION_URL)

@@ -1,4 +1,3 @@
-import datetime
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
@@ -27,7 +26,7 @@ class TaskForm(forms.ModelForm):
     deadline = forms.DateTimeField(
         widget=forms. DateTimeInput(attrs={"type": "datetime-local"})
     )
-    
+
     class Meta:
         model = Task
         fields = "__all__"
