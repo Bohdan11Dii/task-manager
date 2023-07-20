@@ -39,7 +39,7 @@ class Worker(AbstractUser):
         ordering = ["username"]
 
     def __str__(self):
-        return self.username
+        return f"{self.username}({self.position})"
 
 
 class Task(models.Model):
