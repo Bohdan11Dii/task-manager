@@ -55,6 +55,3 @@ themeSwitch.addEventListener('change', function () {
         setPage(1)
     }
 });
-
-
-

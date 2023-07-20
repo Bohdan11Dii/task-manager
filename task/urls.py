@@ -113,12 +113,6 @@ urlpatterns = [
         WorkerCreateView.as_view(),
         name="worker-create"
     ),
-
-
-
-
-
 ]
-
 
 app_name = "task"
