@@ -2503,7 +2503,7 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #cb0c9f;
+  --bs-btn-bg: #0c8dcb;
   --bs-btn-border-color: #cb0c9f;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #ad0a87;
@@ -3918,6 +3918,7 @@ textarea.form-control-lg {
   color: var(--bs-breadcrumb-item-active-color); }
 
 .pagination {
+  margin: 10px auto;
   --bs-pagination-padding-x: 0.75rem;
   --bs-pagination-padding-y: 0.375rem;
   --bs-pagination-font-size: 1rem;
@@ -12990,7 +12991,7 @@ textarea.form-control-lg {
 
 .btn-primary:hover,
 .btn.bg-gradient-primary:hover {
-  background-color: #cb0c9f;
+  background-color: #00c2ff;
   border-color: #cb0c9f; }
 
 .btn-primary .btn.bg-outline-primary,
@@ -13920,7 +13921,7 @@ label,
     transition: opacity 0.3 ease; }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%); }
+  background-image: linear-gradient(310deg, #7928CA 0%, #00c2ff 100%); }
 
 .bg-gradient-secondary {
   background-image: linear-gradient(310deg, #627594 0%, #A8B8D8 100%); }
@@ -14989,7 +14990,7 @@ hr.horizontal {
   color: #344767;
   background-color: #fff; }
   .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
-    background-image: linear-gradient(310deg, #cb0c9f 0%, #cb0c9f 100%); }
+    background-image: linear-gradient(310deg, #fff 0%, #0c8ccb 100%); }
     .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon svg .color-background,
     .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon svg .color-foreground {
       fill: #fff; }

@@ -1,4 +1,5 @@
 .button {
+    margin: 10px auto;
     background-color: #000;
     border: .5px solid DodgerBlue;
     border-radius: 10px;

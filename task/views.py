@@ -11,7 +11,8 @@ from task.forms import (
     TaskTypeSearchForm,
     WorkerCreationForm,
     PositionSearchForm,
-    WorkerSearchForm
+    WorkerSearchForm,
+    WorkerUpdateForm
 
 )
 from task.models import TaskType, Position, Worker, Task
@@ -193,3 +194,15 @@ class WorkerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Worker
     form_class = WorkerCreationForm
     success_url = reverse_lazy("task:worker-list")
+
+
+class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Worker
+    form_class = WorkerUpdateForm
+    success_url = reverse_lazy("task:worker-list")
+
+
+class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Worker
+    success_url = reverse_lazy("task:worker-list")
+    template_name = "task/worker_confirm_delete.html"

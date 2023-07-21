@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from task.models import Task, Worker
+from task.models import Position, Task, Worker
 
 
 class WorkerCreationForm(UserCreationForm):
@@ -11,6 +11,13 @@ class WorkerCreationForm(UserCreationForm):
              "first_name", "last_name", "position"
         )
 
+
+class WorkerUpdateForm(forms.ModelForm):
+    position = forms.ModelChoiceField(queryset=Position.objects.all())
+
+    class Meta:
+        model = Worker
+        fields = ["first_name", "last_name", "position"]
 
 class TaskForm(forms.ModelForm):
     assignees = forms.ModelMultipleChoiceField(
