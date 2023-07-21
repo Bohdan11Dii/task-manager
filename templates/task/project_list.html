@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="title">
+    Projects
+  </h1>
+
+  {% block search_form %}
+    {% include "includes/search_form.html" %}
+  {% endblock %}
+
+
+  {% if project_list %}
+
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for project in project_list %}
+          <tr>
+              <th scope="row"><a class="text-primary" href="{% url 'task:project-detail' pk=project.id %}">{{ project.name }}</a></th>
+              {% if project.status == "Work" %}
+                <td class="text-secondary">{{ project.status }}</td>
+              {% elif project.status == "Finished"%}
+                <td class="text-success">{{ project.status }}</td>
+              {% else %}
+                <td class="text-danger">{{ project.status }}</td>
+              {% endif %}
+              <td><a class="text-info" href="{% url 'task:project-update' pk=project.id %}">Update</a></td>
+              <td><a class="text-danger" href="{% url 'task:project-delete' pk=project.id %}">Delete</a></td>
+          </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    
+    {% else %}
+      <p>The are no project in Projects</p>
+    {% endif %}
+    <a class="button" style="float: right;" href="{% url 'task:project-create' %}">Create</a>
+    
+{% endblock %}

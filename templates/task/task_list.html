@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
 
 {% block content %}
   <h1 class="title">
@@ -28,11 +27,11 @@
       <tbody>
           {% for task in task_list %}
           <tr>
-              <th scope="row"><a class="text-dark" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></th>
+              <th scope="row"><a class="text-primary" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></th>
               {% if task.is_completed == False %}
                 <td class="text-warning">{{ task.is_completed }}</td>
               {% else %}
-                <td class="text-primary">{{ task.is_completed }}</td>
+                <td class="text-success">{{ task.is_completed }}</td>
               {% endif %}
               <td>{{ task.priority }}</td>
               <td><a class="text-info" href="{% url 'task:task-update' pk=task.id %}">Update</a></td>
