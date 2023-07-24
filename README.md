@@ -16,20 +16,22 @@ To deploy the Task Manager project locally, please follow the steps below:
 
 2. Navigate to the project directory: cd task_manager
 
-3. Create a virtual environment: python -m venv env
+3. Switch to a branch: git checkout develop
 
-4. Activate the virtual environment:
+4. Create a virtual environment: python -m venv env
 
-- For Windows:  .\env\Scripts\activate
-- For macOS and Linux: source env/bin/activate
+5. Activate the virtual environment:
 
-5. Install the project dependencies: pip install -r requirements.txt
+    - For Windows:  .\env\Scripts\activate
+    - For macOS and Linux: source env/bin/activate
 
-6. Apply database migrations: python manage.py migrate
+6. Install the project dependencies: pip install -r requirements.txt
 
-7. Run the development server: python manage.py runserver
+7. Apply database migrations: python manage.py migrate
 
-8. Open your web browser and access the Task Manager application at http://localhost:8000/.
+8. Run the development server: python manage.py runserver
+
+9. Open your web browser and access the Task Manager application at http://localhost:8000/.
 
 You can use test user made during migration:
 
