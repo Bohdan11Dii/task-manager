@@ -24,7 +24,7 @@
           <tbody>
               {% for worker in worker_list %}
               <tr>
-                  <td><a class="text-primary" href="{% url 'task:worker-detail' pk=worker.id %}">{{ worker.username }}</a></td>
+                  <td><a class="text-dark" href="{% url 'task:worker-detail' pk=worker.id %}">{{ worker.username }}</a></td>
                   <td>{{ worker.position.name }}</td>
                   <td><a class="text-info" href="{% url 'task:worker-update' pk=worker.id %}">Update</a></td>
                   <td><a style="color: rgb(252, 61, 3);" href="{% url 'task:worker-delete' pk=worker.id %}">Delete</a></td>

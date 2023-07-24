@@ -12,7 +12,6 @@
 
   {% if task_list %}
 
-
   <div class="table-responsive">
     <table class="table">
       <thead class="thead-dark">
@@ -27,7 +26,7 @@
       <tbody>
           {% for task in task_list %}
           <tr>
-              <th scope="row"><a class="text-primary" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></th>
+              <th scope="row"><a class="text-dark" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></th>
               {% if task.is_completed == False %}
                 <td class="text-warning">{{ task.is_completed }}</td>
               {% else %}

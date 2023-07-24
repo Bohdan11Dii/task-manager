@@ -12,3 +12,34 @@
     margin: 0 auto;
     }
 }
+
+
+
+.table_for_index{
+    border-collapse: collapse!important;
+    background: white;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+    margin-top: 50px;
+  }
+  .table_for_index th {
+    border-bottom: 1px solid #364043;
+    color: white;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+    background: black!important;
+  }
+  .table_for_index td {
+    color: black;
+    font-weight: 400;
+    padding: 0.65em 1em;
+  }
+  
+  .table_for_index tbody tr {
+    transition: background 0.25s ease;
+  }
+  .table_for_index tbody tr:hover {
+    background: linear-gradient(310deg, #7928CA 0%, #00c2ff 100%);
+  }

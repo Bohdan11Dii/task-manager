@@ -80,3 +80,43 @@ class Task(models.Model):
 
     def get_absolute_url(self):
         return reverse("task:task-detail", kwargs={"pk": self.pk})
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=255)
+    participants = models.ManyToManyField(
+        Worker,
+        related_name="team"
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Project(models.Model):
+    STATUS_CHOICES = (
+        ("Work", "Work"),
+        ("Finished", "Finished"),
+        ("Canceled", "Canceled")
+    )
+
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default="Work"
+    )
+    team = models.ManyToManyField(
+        Team,
+        related_name="project"
+    )
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("task:project-detail", kwargs={"pk": self.pk})
