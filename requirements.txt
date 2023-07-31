@@ -25,3 +25,4 @@ tomli==2.0.1
 typing_extensions==4.7.1
 whitenoise==6.5.0
 wrapt==1.15.0
+gunicorn==21.2.0
