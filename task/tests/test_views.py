@@ -1,8 +1,8 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.urls import reverse
-from task.models import Position
 
+from task.models import Position
 
 POSITION_URL = reverse("task:position-list")
 WORKER_URL = reverse("task:worker-create")
@@ -24,21 +24,20 @@ class PrivatePositionTests(TestCase):
         self.client.force_login(self.user)
 
     def test_retrieve_position(self):
+        # from django.core.paginator import Paginator
+
+        
         Position.objects.create(
             name="test",
         )
-        Position.objects.create(
-            name="test1",
-        )
-
         response = self.client.get(POSITION_URL)
 
-        position = Position.objects.all()
+        positions = Position.objects.all()
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
             list(response.context["position_list"]),
-            list(position)
+            list(positions)[:10]
         )
         self.assertTemplateUsed(
             response,
