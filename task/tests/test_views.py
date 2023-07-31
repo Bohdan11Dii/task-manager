@@ -24,9 +24,6 @@ class PrivatePositionTests(TestCase):
         self.client.force_login(self.user)
 
     def test_retrieve_position(self):
-        # from django.core.paginator import Paginator
-
-        
         Position.objects.create(
             name="test",
         )

@@ -77,7 +77,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "task.context_processors.cfg_assets_root",
             ],
         },
     },
@@ -97,8 +96,8 @@ DATABASES = {
 }
 
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -144,8 +143,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = "staticfiles/"
-
-ASSETS_ROOT = "/static/assets"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
