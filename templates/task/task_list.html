@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="title">
+    Tasks
+  </h1>
+
+  {% block search_form %}
+    {% include "includes/search_form.html" %}
+  {% endblock %}
+
+
+  {% if task_list %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Completion date</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for task in task_list %}
+          <tr>
+              <th scope="row"><a class="text-dark" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></th>
+              {% if task.is_completed == False %}
+                <td class="text-warning">{{ task.is_completed }}</td>
+              {% else %}
+                <td class="text-success">{{ task.is_completed }}</td>
+              {% endif %}
+              <td>{{ task.priority }}</td>
+              <td><a class="text-info" href="{% url 'task:task-update' pk=task.id %}">Update</a></td>
+              <td><a class="text-danger" href="{% url 'task:task-delete' pk=task.id %}">Delete</a></td>
+          </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    
+    {% else %}
+      <p>The are no task in Tasks</p>
+    {% endif %}
+    <a class="button" style="float: right;" href="{% url 'task:task-create' %}">Create</a>
+    
+{% endblock %}

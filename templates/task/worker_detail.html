@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'task:worker-list' %}">
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="text-dark" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+  </svg>
+</a>
+  <h1>{{ task.name }}</h1>
+  <br>
+    <div class="card z-index-2">
+        <div class="card-body p-3">
+         
+          <h3 class="ms-2  mb-0"> Username: {{worker.username}} </h3>
+          <br>
+          
+        </div>
+      </div>
+      <br>
+      
+      
+     <br>
+        <h2>Description</h2>
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Position</th>
+              <th>Tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ worker.first_name }}</td>
+                  <td>{{ worker.last_name }}</td>
+                  <td>{{ worker.position }}</td>
+                  <td>
+                    <table>
+                      {% for task in worker.tasks.all %}
+                        <tr>
+                          <td>{{ task.name }}</td>
+                        </tr>
+                      {% empty %}
+                        <p>No task!</p>
+                      {% endfor %}
+                    </table>
+                  </td>
+              </tr>
+          </tbody>
+          </table>
+
+        
+        <br>
+    
+{% endblock %}
