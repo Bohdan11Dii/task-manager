@@ -31,7 +31,8 @@ To deploy the Task Manager project locally, please follow the steps below:
 * Password 27%!ImV1z43&
 
 #### Environment Variables
-In the root directory, you need to create .env file and set your secret key to it
+In the root directory, you need to create an .env file and install all the necessary data that is written in the file .env_sample, namely
 ```
 DJANGO_SECRET_KEY: Your Django secret key
+DATABASE_URL: Your database url
 ```
