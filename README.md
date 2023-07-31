@@ -1,6 +1,8 @@
 # Task Manager
 Task Manager is a web application built with Django that allows you to manage projects, teams, employees, tasks, positions, and task types. It provides a user-friendly interface for organizing and tracking tasks within an organization or team.
 
+## Check it out!
+[IT task manager project deployed to render](https://it-task-manager-99on.onrender.com/task-types/)
 ## Characteristic
 
 ```
