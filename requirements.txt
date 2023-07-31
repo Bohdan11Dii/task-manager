@@ -3,6 +3,7 @@ astroid==2.15.6
 black==23.7.0
 click==8.1.4
 crispy-bootstrap4==2022.1
+dj-database-url==2.0.0
 Django==4.2.3
 django-admin-soft-dashboard==1.0.12
 django-crispy-forms==2.0
@@ -15,9 +16,11 @@ mypy-extensions==1.0.0
 packaging==23.1
 pathspec==0.11.1
 platformdirs==3.8.1
+psycopg2-binary==2.9.6
 pycodestyle==2.10.0
 pyflakes==3.0.1
 sqlparse==0.4.4
 tomli==2.0.1
 typing_extensions==4.7.1
+whitenoise==6.5.0
 wrapt==1.15.0
