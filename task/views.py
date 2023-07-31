@@ -1,32 +1,17 @@
 from typing import Any, Dict
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from task.forms import (
-    ProjectForm,
-    ProjectSearchForm,
-    TaskForm,
-    TaskSearchForm,
-    TaskTypeSearchForm,
-    TeamForm,
-    TeamSearchForm,
-    WorkerCreationForm,
-    PositionSearchForm,
-    WorkerSearchForm,
-    WorkerUpdateForm
 
-)
-from task.models import (
-    Project,
-    TaskType,
-    Position,
-    Team,
-    Worker,
-    Task
-)
+from task.forms import (PositionSearchForm, ProjectForm, ProjectSearchForm,
+                        TaskForm, TaskSearchForm, TaskTypeSearchForm, TeamForm,
+                        TeamSearchForm, WorkerCreationForm, WorkerSearchForm,
+                        WorkerUpdateForm)
+from task.models import Position, Project, Task, TaskType, Team, Worker
 
 
 @login_required

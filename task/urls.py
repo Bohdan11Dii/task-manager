@@ -1,39 +1,16 @@
 from django.urls import path
-from task.views import (
-    index,
-    TaskTypeListView,
-    TaskTypeCreateView,
-    TaskTypeUpdateView,
-    TaskTypeDeleteView,
 
-    TaskListView,
-    TaskCreateView,
-    TaskUpdateView,
-    TaskDeleteView,
-    TaskDetailView,
-
-    PositionListView,
-    PositionCreateView,
-    PositionUpdateView,
-    PositionDeleteView,
-
-    WorkerListView,
-    WorkerDetailView,
-    WorkerCreateView,
-    WorkerUpdateView,
-    WorkerDeleteView,
-
-    ProjectListView,
-    ProjectDetailView,
-    ProjectCreateView,
-    ProjectUpdateView,
-    ProjectDeleteView,
-
-    TeamCreateView,
-    TeamDeleteView,
-    TeamListView,
-    TeamUpdateView,
-)
+from task.views import (PositionCreateView, PositionDeleteView,
+                        PositionListView, PositionUpdateView,
+                        ProjectCreateView, ProjectDeleteView,
+                        ProjectDetailView, ProjectListView, ProjectUpdateView,
+                        TaskCreateView, TaskDeleteView, TaskDetailView,
+                        TaskListView, TaskTypeCreateView, TaskTypeDeleteView,
+                        TaskTypeListView, TaskTypeUpdateView, TaskUpdateView,
+                        TeamCreateView, TeamDeleteView, TeamListView,
+                        TeamUpdateView, WorkerCreateView, WorkerDeleteView,
+                        WorkerDetailView, WorkerListView, WorkerUpdateView,
+                        index)
 
 urlpatterns = [
     path("", index, name="index"),
